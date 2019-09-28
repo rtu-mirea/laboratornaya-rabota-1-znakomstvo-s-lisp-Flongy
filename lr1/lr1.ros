@@ -24,7 +24,7 @@ exec ros -Q -- $0 "$@"
       (+ (fibonacci(- n 2)) (fibonacci(- n 1))))))
 
 (defun main (&rest argv)
-  (declare (ignorable argv)))
+  (declare (ignorable argv))
   (format t "Факториал~%")
   (loop for i from 0 to 16
     do (format t "~D! = ~D~%" i (factorial i)))
@@ -32,3 +32,14 @@ exec ros -Q -- $0 "$@"
   (format t "~%Числа Фибоначчи~%")
   (loop for i from 1 to 20
     do (format t "fib(~D) = ~D~%" i (fibonacci i)))
+
+  (defvar x (list (list 8 10) (list 9 1) (list 2 8) (list 3 7) (list 6 4)))
+
+  (format t "~%Оригинальный список: ~D~%" x)
+  ;; Хвост 4 списка
+  (format t "Хвост 4 списка: ~D~%" (cdr (car (cdddr x))))
+  ;; Голова 3 списка
+  (format t "Голова 3 списка: ~D~%" (car (car (cddr x))))
+  ;; Целиком 5 список
+  (format t "Целиком 5 список: ~D~%" (car (cddddr x)))
+  )
